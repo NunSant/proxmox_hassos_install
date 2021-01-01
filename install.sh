@@ -130,7 +130,8 @@ done
 
 # Create VM
 msg "Creating VM..."
-VM_NAME=$(sed -e "s/\_//g" -e "s/.${RELEASE_EXT}//" <<< $FILE)
+#VM_NAME=$(sed -e "s/\_//g" -e "s/.${RELEASE_EXT}//" <<< $FILE)
+VM_NAME="HassOs"
 qm create $VMID -agent 1 -bios ovmf -name $VM_NAME -net0 virtio,bridge=vmbr0 \
   -onboot 1 -ostype l26 -scsihw virtio-scsi-pci
 pvesm alloc $STORAGE $VMID $DISK0 128 1>&/dev/null
